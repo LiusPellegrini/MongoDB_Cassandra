@@ -259,6 +259,7 @@ db.atmo_indices.distinct("properties.lib_zone", {"properties.lib_qual": "Moyen"}
 ```
 
 Résultat: 
+```
 [
     "Aubière",
     "Aulnat",
@@ -282,7 +283,7 @@ Résultat:
     "Royat",
     "Saint-Genès-Champanelle"
 ]
-
+```
 
 ### Question 2 : Code de qualité de l'air maximal à Saint-Genès-Champanelle
 ```java
@@ -290,12 +291,13 @@ db.atmo_indices.find( { "properties.lib_zone": "Saint-Genès-Champanelle" }, {"_
 ```
 
 Résultat:
+```
 {
     "properties" : {
         "code_qual" : NumberInt(3)
     }
 }
-
+```
 
 ### Question 3 : Différentes communes observées
 ```java
@@ -335,6 +337,7 @@ db.atmo_indices.aggregate([{$group:{_id:"$properties.lib_zone", avg_quality:{$av
 ```
 
 Résultat:
+```
 {
     "avg_quality" : 2.0,
     "lib_zone" : "Beaumont"
@@ -419,7 +422,7 @@ Résultat:
     "avg_quality" : 2.0,
     "lib_zone" : "Aubière"
 }
-
+```
 
 ### Question 5 : Qualité de l'air la plus récente dans un rayon de 1km de la position (45.77441539864761, 3.0890499134717686)
 ```java 
@@ -428,13 +431,14 @@ db.atmo_indices.find({"geometry":{$near:{$geometry:{type:"Point", coordinates:[3
 ```
 
 Résultat
+```
 {
     "properties" : {
         "code_qual" : NumberInt(2),
         "lib_zone" : "Clermont-Ferrand"
     }
 }
-
+```
 
 ### Question 6 : Nombre de relevés d'indice différent pour les communes dont le nom commence par C
 ```java
@@ -452,11 +456,12 @@ db.atmo_indices.aggregate([
 ```
 
 Résultat:
+```
 {
     "_id" : null,
     "nb_of_different_indices" : NumberInt(2)
 }
-
+```
 
 ### Question 7 : Communes par qualité d'air
 ```java
@@ -464,6 +469,7 @@ db.atmo_indices.aggregate([{$group:{_id:"$properties.lib_qual", lib_zones:{$addT
 ```
 
 Résultat:
+```
 {
     "_id" : "Dégradé",
     "lib_zones" : [
@@ -501,7 +507,7 @@ Résultat:
         "Cébazat"
     ]
 }
-
+```
 
 ### Question 8 : Concentration moyenne de PM10 en Auvergne-Rhône-Alpes le 22 octobre 2023
 ```java
@@ -528,10 +534,11 @@ db.atmo_indices.aggregate([
 ```
 
 Résultat:
+```
 {
     "avg_PM10_Auvergne_Rhone_Alpes" : 7.739757142857142
 }
-
+```
 
 ### Question 9 : Evolution de la concentration de N02 à Clermont-Ferrand
 ```java
@@ -539,6 +546,7 @@ db.atmo_indices.aggregate([{$match:{"properties.lib_zone":"Clermont-Ferrand"}}, 
 ```
 
 Résultat:
+```
 {
     "avg_NO2" : 86.3478,
     "date" : "17/10/2023"
@@ -575,6 +583,7 @@ Résultat:
     "avg_NO2" : 49.5019,
     "date" : "25/10/2023"
 }
+```
 
 
 ### Question 10 : Commune avec la concentration d'ozone la plus faible
@@ -583,8 +592,9 @@ db.atmo_indices.aggregate([{$match:{"properties.code_o3":3}}, {$sort:{"propertie
 ```
 
 Résultat:
+```
 {
     "Location" : "Durtol",
     "O3_Concentration" : 100.4635
 }
-
+```
