@@ -43,7 +43,17 @@ SELECT nom_dechet FROM data.ex WHERE famille_dechet = 'Verre' allow filtering;
 ```
 
 ```
- nom_dechet : Pot de yaourt en verre, Pot en verre, Bocal en verre, Pot en verre, Bocal en verre, Bouteille en verre, Flacon en verre,  de yaourt en verre, Pot en verre
+ nom_dechet
+------------------------
+ Pot de yaourt en verre
+           Pot en verre
+         Bocal en verre
+           Pot en verre
+         Bocal en verre
+     Bouteille en verre
+        Flacon en verre
+ Pot de yaourt en verre
+           Pot en verre
 ```
 
 > Nb: Impossible d'utiliser DISTINCT with the WHERE condition. Would require another table architecture, which we will not do.
@@ -55,7 +65,9 @@ SELECT description FROM data.ex WHERE id_exutoire = 6 limit 1;
 ```
 
 ```
-description : Ce déchet peut être composté. Il deviendra alors une ressource !!
+ description
+-------------------------------------------------------------------
+ Ce déchet peut être composté. Il deviendra alors une ressource !!
 ```
 
 ### Question 6 : Nombre de type de déchets concernés par les exutoires de type "Conseil"
@@ -153,115 +165,30 @@ Résultat:
 |Verre| Borne à verre|
 |Vie domestique| Poubelle noire|
 
-Alimentation
-Composteur
-DÃ©chetterie
-Poubelle noire
-Bijoux
-DÃ©chetterie
-Poubelle noire
-Bois
-Composteur
-DÃ©chetterie
-Poubelle noire
-Culture loisirs
-DÃ©chetterie
-Poubelle noire
-Poubelle verte / jaune
-Divers
-Composteur
-DÃ©chetterie
-DÃ©chetterie professionnelle
-Ferrailleur agrÃ©Ã©
-Police / Gendarmerie
-Poubelle noire
-Revendeur ou Installateur
-Electrique et Ã©lectronique
-Bornes de collecte
-DÃ©chetterie
-DÃ©chetteries spÃ©cifiques
-Ferrailleur agrÃ©Ã©
-Revendeur ou Installateur
-Emballages en mÃ©tal
-Bornes de collecte
-DÃ©chetterie
-Poubelle verte / jaune
-Emballages en plastique
-DÃ©chetterie
-Poubelle verte / jaune
-Equipement de la maison
-DÃ©chetterie
-Instrument de musique
-Borne textile
-DÃ©chetterie
-Poubelle noire
-Revendeur ou Installateur
-MÃ©dical
-DÃ©chetterie
-DÃ©chetterie professionnelle
-Pharmacie
-Poubelle noire
-Revendeur ou Installateur
-MatÃ©riaux
-DÃ©chetterie
-DÃ©chetterie professionnelle
-Ferrailleur agrÃ©Ã©
-Poubelle noire
-Revendeur ou Installateur
-Objets en Plastique
-DÃ©chetterie
-Poubelle noire
-Outils manuel
-DÃ©chetterie
-Ferrailleur agrÃ©Ã©
-Poubelle noire
-Papier carton
-Composteur
-DÃ©chetterie
-DÃ©chetterie professionnelle
-Poubelle noire
-Poubelle verte / jaune
-Produits chimiques
-Bornes de collecte
-DÃ©chetterie
-DÃ©chetterie professionnelle
-Police / Gendarmerie
-Poubelle noire
-Revendeur ou Installateur
-Sport
-Borne textile
-DÃ©chetterie
-Poubelle noire
-Textiles d'habillement, linge de maison et chaussures
-Borne textile
-DÃ©chetterie
-Poubelle noire
-Transport
-DÃ©chetterie
-DÃ©chetterie professionnelle
-Ferrailleur agrÃ©Ã©
-Poubelle noire
-Revendeur ou Installateur
-VÃ©gÃ©taux
-Composteur
-DÃ©chetterie
-Points de collecte provisoires
-Vaisselle
-DÃ©chetterie
-Poubelle noire
-Verre
-Borne Ã  verre
-Vie domestique
-Borne textile
-Bornes de collecte
-Composteur
-DÃ©chetterie
-DÃ©chetterie professionnelle
-Ferrailleur agrÃ©Ã©
-Police / Gendarmerie
-Poubelle noire
-Poubelle verte / jaune
-Revendeur ou Installateur
+|famille_dechet|labels_exutoires|
+|---:|---|
+|Alimentation | Composteur, Déchetterie, Poubelle noire|
+|Bijoux| Déchetterie, Poubelle noire|
+|Bois|Composteur, Déchetterie, Poubelle noire|
+|Culture loisirs|Déchetterie, Poubelle noire, Poubelle verte / jaune|
+|Divers|Composteur, Déchetterie, Déchetterie professionnelle, Ferrailleur agréé, Police / Gendarmerie, Poubelle noire, Revendeur ou Installateur|
+|Electrique et électronique|Bornes de collecte, Déchetterie, Déchetteries spécifiques, Ferrailleur agréé, Revendeur ou Installateur|
+|Emballages en métal|Bornes de collecte, Déchetterie, Poubelle verte / jaune|
+|Emballages en plastique|Déchetterie, Poubelle verte / jaune|
+|Equipement de la maison|Déchetterie|
+|Instrument de musique|Borne textile, Déchetterie, Poubelle noire, Revendeur ou Installateur|
+|Médical|Déchetterie, Déchetterie professionnelle, Pharmacie, Poubelle noire, Revendeur ou Installateur|
+|Matériaux|Déchetterie, Déchetterie professionnelle, Ferrailleur agréé, Poubelle noire, Revendeur ou Installateur|
+|Objets en Plastique| Déchetterie, Poubelle noire|
+|Outils manuel| Déchetterie, Ferrailleur agréé, Poubelle noire|
+|Papier carton|Composteur, Déchetterie, Déchetterie professionnelle, Poubelle noire, Poubelle verte / jaune|
+|Produits chimiques|Bornes de collecte, Déchetterie, Déchetterie professionnelle, Police / Gendarmerie, Poubelle noire, Revendeur ou Installateur|
+|Sport|Borne textile, Déchetterie, Poubelle noire|
+|Textiles d'habillement, linge de maison et chaussures|Borne textile, Déchetterie, Poubelle noire|
+|Transport|Déchetterie, Déchetterie professionnelle, Ferrailleur agréé, Poubelle noire, Revendeur ou Installateur|
+|Végétaux|Composteur, Déchetterie, Points de collecte provisoires|
+|Vaisselle|Déchetterie, Poubelle noire, Verre, Borne à verre|
+|Vie domestique|Borne textile, Bornes de collecte, Composteur, Déchetterie, Déchetterie professionnelle, Ferrailleur agréé, Police / Gendarmerie, Poubelle noire, Poubelle verte / jaune, Revendeur ou Installateur|
 
 
 ### Question 11: Clé permettant d'assurer une répartition uniforme des données sur un cluster distribué
