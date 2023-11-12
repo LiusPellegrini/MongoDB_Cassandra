@@ -105,35 +105,37 @@ Résultat:
 |Vie domestique| 2| 141555|
 
 
-### Question 10 Labels d'exutoires asssociés à chaque famille de déchets
+### Question 10 Labels d'exutoires associés à chaque famille de déchets
 ```sql
 SELECT famille_dechet, type, label COUNT(*) AS nb_occ FROM project GROUP BY famille_dechet, type, label ORDER BY famille_dechet, nb_occ DESC;
 ```
 
 Résultat:
-Alimentation: Poubelle noire
-Bijoux: Poubelle noire
-Bois: DÃ©chetterie
-Culture loisirs: Poubelle noire
-Divers: Poubelle noire
-Electrique et électronique:DÃ©chetterie
-Emballages en métal: Poubelle verte / jaune
-Emballages en plastique: Poubelle verte / jaune
-Equipement de la maison: Déchetterie
-Instrument de musique: Déchetterie
-Médical: Pharmacie
-Matériaux: Déchetterie
-Objets en Plastique: Poubelle noire
-Outils manuel: Déchetterie
-Papier carton: Poubelle verte / jaune
-Produits chimiques: Déchetterie
-Sport: Déchetterie
-Textiles d'habillement, linge de maison et chaussures: Borne textile
-Transport: Déchetterie
-Végétaux: Déchetterie
-Vaisselle: Déchetterie
-Verre: Borne à verre
-Vie domestique: Poubelle noire
+| famille_dechet | type_exutoire |
+|---------------:|--------------:|
+|Alimentation| Poubelle noire|
+|Bijoux| Poubelle noire|
+|Bois| DÃ©chetterie|
+|Culture loisirs| Poubelle noire|
+|Divers| Poubelle noire|
+|Electrique et électronique|Déchetterie|
+|Emballages en métal| Poubelle verte / jaune|
+|Emballages en plastique| Poubelle verte / jaune|
+|Equipement de la maison| Déchetterie|
+|Instrument de musique| Déchetterie|
+|Médical| Pharmacie|
+|Matériaux| Déchetterie|
+|Objets en Plastique| Poubelle noire|
+|Outils manuel| Déchetterie|
+|Papier carton| Poubelle verte / jaune|
+|Produits chimiques| Déchetterie|
+|Sport| Déchetterie|
+|Textiles d'habillement, linge de maison et chaussures| Borne textile|
+|Transport| Déchetterie|
+|Végétaux| Déchetterie|
+|Vaisselle| Déchetterie|
+|Verre| Borne à verre|
+|Vie domestique| Poubelle noire|
 
 Alimentation
 Composteur
@@ -246,15 +248,11 @@ Poubelle verte / jaune
 Revendeur ou Installateur
 
 
-Question 11: Clé permettant d'assurer une répartition uniforme des données sur un cluster distribué
-
+### Question 11: Clé permettant d'assurer une répartition uniforme des données sur un cluster distribué
 Réponse: On pourrait utiliser les clé "type", car elle contient exactement 50% de "Exutoire" et 50% de "Conseil".
 
-Question 12
 
-## Partie 2 : Etude d'indicateurs atmosphériques avec localisation
-On utilisera MongoDB
-
+## Partie 2 : Etude d'indicateurs atmosphériques avec localisation avec MongoDB
 ### Question 1 : Communes ayant un indice de qualité de l'air "Moyen" 
 ```java
 db.atmo_indices.distinct("properties.lib_zone", {"properties.lib_qual": "Moyen"})
@@ -305,6 +303,7 @@ db.atmo_indices.distinct("properties.lib_zone", {"properties.type_zone": "commun
 ```
 
 Résultat:
+```
 [
     "Aubière",
     "Aulnat",
@@ -328,7 +327,7 @@ Résultat:
     "Royat",
     "Saint-Genès-Champanelle"
 ]
-
+```
 
 ### Question 4 : Code qualité moyen par commune
 ```java
