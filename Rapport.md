@@ -5,23 +5,36 @@
 ```sql
 SELECT COUNT(*) FROM data.ex WHERE label = 'Dématérialisation' allow filtering;
 ```
-> count : 14
+```
+count
+-------
+    14
+```
 
 
 ### Question 2 : Type d'exutoire pour les déchets "Peinture à l'eau"
 ```sql
 SELECT label FROM data.ex WHERE type = 'Exutoire' and nom_dechet = 'Peinture à l''eau' allow filtering;
 ```
-
-> label : Poubelle noire
-
+```
+ label
+----------------
+ Poubelle noire
+ ```
 
 ### Question 3 : Déchets associés à l'exutoire 3
 ```sql
 SELECT nom_dechet as Dechet FROM data.ex WHERE id_exutoire = 3;
 ```
-
-> dechet : Bocal en verre, Bouteille en verre, Flacon en verre, Pot de yaourt en verre, Pot en verre
+```
+ dechet
+------------------------
+         Bocal en verre
+     Bouteille en verre
+        Flacon en verre
+ Pot de yaourt en verre
+           Pot en verre
+```
 
 
 ### Question 4 : Déchets appartenants à la famille "Verre"
@@ -29,7 +42,9 @@ SELECT nom_dechet as Dechet FROM data.ex WHERE id_exutoire = 3;
 SELECT nom_dechet FROM data.ex WHERE famille_dechet = 'Verre' allow filtering;
 ```
 
-> nom_dechet : Pot de yaourt en verre, Pot en verre, Bocal en verre, Pot en verre, Bocal en verre, Bouteille en verre, Flacon en verre,  de yaourt en verre, Pot en verre
+```
+ nom_dechet : Pot de yaourt en verre, Pot en verre, Bocal en verre, Pot en verre, Bocal en verre, Bouteille en verre, Flacon en verre,  de yaourt en verre, Pot en verre
+```
 
 > Nb: Impossible d'utiliser DISTINCT with the WHERE condition. Would require another table architecture, which we will not do.
 
@@ -39,8 +54,9 @@ SELECT nom_dechet FROM data.ex WHERE famille_dechet = 'Verre' allow filtering;
 SELECT description FROM data.ex WHERE id_exutoire = 6 limit 1;
 ```
 
-> description : Ce déchet peut être composté. Il deviendra alors une ressource !!
-
+```
+description : Ce déchet peut être composté. Il deviendra alors une ressource !!
+```
 
 ### Question 6 : Nombre de type de déchets concernés par les exutoires de type "Conseil"
 ```sql
@@ -58,9 +74,9 @@ Pour les exutoires de type "Conseil", on trouve 4 famille_dechet différentes : 
 CREATE INDEX IF NOT EXISTS type_index ON data.ex (type);
 SELECT COUNT(DISTINCT "nom_dechet") AS dechet_nb, type FROM data.ex GROUP BY type ORDER BY dechet_nb DESC LIMIT 1; 
 ```
-
+```
 Résultat : Déchetterie, 22 familles de déchet différentes
-
+```
 
 
 ### Question 8 : Type d'exutoire le plus courant
