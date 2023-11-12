@@ -86,9 +86,9 @@ Pour les exutoires de type "Conseil", on trouve 4 famille_dechet différentes : 
 CREATE INDEX IF NOT EXISTS type_index ON data.ex (type);
 SELECT COUNT(DISTINCT "nom_dechet") AS dechet_nb, type FROM data.ex GROUP BY type ORDER BY dechet_nb DESC LIMIT 1; 
 ```
-```
+
 Résultat : Déchetterie, 22 familles de déchet différentes
-```
+
 
 
 ### Question 8 : Type d'exutoire le plus courant
@@ -139,31 +139,6 @@ SELECT famille_dechet, type, label COUNT(*) AS nb_occ FROM project GROUP BY fami
 ```
 
 Résultat:
-| famille_dechet | type_exutoire |
-|---------------:|--------------:|
-|Alimentation| Poubelle noire|
-|Bijoux| Poubelle noire|
-|Bois| DÃ©chetterie|
-|Culture loisirs| Poubelle noire|
-|Divers| Poubelle noire|
-|Electrique et électronique|Déchetterie|
-|Emballages en métal| Poubelle verte / jaune|
-|Emballages en plastique| Poubelle verte / jaune|
-|Equipement de la maison| Déchetterie|
-|Instrument de musique| Déchetterie|
-|Médical| Pharmacie|
-|Matériaux| Déchetterie|
-|Objets en Plastique| Poubelle noire|
-|Outils manuel| Déchetterie|
-|Papier carton| Poubelle verte / jaune|
-|Produits chimiques| Déchetterie|
-|Sport| Déchetterie|
-|Textiles d'habillement, linge de maison et chaussures| Borne textile|
-|Transport| Déchetterie|
-|Végétaux| Déchetterie|
-|Vaisselle| Déchetterie|
-|Verre| Borne à verre|
-|Vie domestique| Poubelle noire|
 
 |famille_dechet|labels_exutoires|
 |---:|---|
