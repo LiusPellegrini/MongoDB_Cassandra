@@ -7,11 +7,6 @@ SELECT COUNT(*) FROM data.ex WHERE label = 'Dématérialisation' allow filtering
 ```
 > count : 14
 
-Résultat :
- count
--------
-    14
-
 
 ### Question 2 : Type d'exutoire pour les déchets "Peinture à l'eau"
 ```sql
@@ -34,21 +29,9 @@ SELECT nom_dechet as Dechet FROM data.ex WHERE id_exutoire = 3;
 SELECT nom_dechet FROM data.ex WHERE famille_dechet = 'Verre' allow filtering;
 ```
 
-Résultat:
+> nom_dechet : Pot de yaourt en verre, Pot en verre, Bocal en verre, Pot en verre, Bocal en verre, Bouteille en verre, Flacon en verre,  de yaourt en verre, Pot en verre
 
- nom_dechet
-------------------------
- Pot de yaourt en verre
-           Pot en verre
-         Bocal en verre
-           Pot en verre
-         Bocal en verre
-     Bouteille en verre
-        Flacon en verre
- Pot de yaourt en verre
-           Pot en verre
-
-Nb: Impossible d'utiliser DISTINCT with the WHERE condition. Would require another table architecture, which we will not do.
+> Nb: Impossible d'utiliser DISTINCT with the WHERE condition. Would require another table architecture, which we will not do.
 
 
 ### Question 5 : Description de l'exutoire 6
@@ -56,11 +39,7 @@ Nb: Impossible d'utiliser DISTINCT with the WHERE condition. Would require anoth
 SELECT description FROM data.ex WHERE id_exutoire = 6 limit 1;
 ```
 
-Résultat:
-
- description
--------------------------------------------------------------------
- Ce déchet peut être composté. Il deviendra alors une ressource !!
+> description : Ce déchet peut être composté. Il deviendra alors une ressource !!
 
 
 ### Question 6 : Nombre de type de déchets concernés par les exutoires de type "Conseil"
@@ -99,29 +78,31 @@ SELECT famille_dechet, type, label, COUNT(*) AS nb_occurrences FROM data.ex GROU
 ```
 
 Résultat:
-Alimentation: 2 118330
-Bijoux: 2 3428
-Bois: 4 1685
-Culture loisirs: 4 1938
-Divers: 2 3762
-Electrique et Electronique: 4 198040
-Emballages en métal: 1 8846
-Emballage en plastique: 1 24014
-Equipement de maison 4 874
-Instrument de musique 4 16716
-Médical 4 3740
-Matériaux 4 99654
-Objets en plastique 2 9572
-Outils manuel 4 27201
-Papier carton 1 41395
-Produits chimiques 4 34468
-Sport 4 21768
-Textile 5 80938
-Transport 4 13410
-Végétaux 4 20426
-Vaisselle 4 11533
-Verre 3 3293
-Vie domestique 2 141555
+| famille_dechet | type_exutoire | nb_occurence |
+|---------------:|--------------:|-------------:|
+|Alimentation    |        2      |118330|
+|Bijoux          |        2      |3428|
+|Bois           |        4      |1685|
+|Culture loisirs |        4      |1938|
+|Divers          |        2      |3762|
+|Electrique et Electronique| 4    | 198040|
+|Emballages en métal| 1| 8846|
+|Emballage en plastique |1| 24014|
+|Equipement de maison |4| 874|
+|Instrument de musique |4 |16716|
+|Médical |4| 3740|
+|Matériaux |4| 99654|
+|Objets en plastique| 2| 9572|
+|Outils manuel |4| 27201|
+|Papier carton |1| 41395|
+|Produits chimiques| 4| 34468|
+|Sport |4| 21768|
+|Textile |5| 80938|
+|Transport |4| 13410|
+|Végétaux |4| 20426|
+|Vaisselle |4| 11533|
+|Verre |3| 3293|
+|Vie domestique| 2| 141555|
 
 
 ### Question 10 Labels d'exutoires asssociés à chaque famille de déchets
