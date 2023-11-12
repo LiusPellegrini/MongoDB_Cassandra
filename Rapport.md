@@ -56,7 +56,7 @@ SELECT nom_dechet FROM data.ex WHERE famille_dechet = 'Verre' allow filtering;
            Pot en verre
 ```
 
-> Nb: Impossible d'utiliser DISTINCT with the WHERE condition. Would require another table architecture, which we will not do.
+> Nb: Impossible d'utiliser DISTINCT with the WHERE condition. This would require another table architecture.
 
 
 ### Question 5 : Description de l'exutoire 6
@@ -168,6 +168,11 @@ Résultat:
 
 ### Question 11: Clé permettant d'assurer une répartition uniforme des données sur un cluster distribué
 Réponse: On pourrait utiliser les clé "type", car elle contient exactement 50% de "Exutoire" et 50% de "Conseil".
+
+
+
+
+
 
 
 ## Partie 2 : Etude d'indicateurs atmosphériques avec localisation avec MongoDB
